@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+<div class="container">	
+	<div class="card">
+					<div class="card-body">
+						 <div class="row">
+    						<div class="editPic">
+								<img id="propic" src="<%= status.author.image %>">
+							 </div>
+							 <div class="editTitle">
+								<a href="/<%= status.author.id %>/profile" class="card-link">
+									<h5 class="card-title"><%= status.author.fname %></h5></a>
+							 </div>
+						</div>
+			<h6 class="card-subtitle mb-2 text-muted">@<%= status.author.username %></h6>
+			<form action="/api/status/<%= status._id %>?_method=PUT" method="POST">
+				<input id="editStatus" class="form-control" type="text" placeholder="What you doin'?" name="status" 
+					value="<%= status.status %>" required>
+			</form>
+			<h6 class="mb-2 text-muted"> <%= moment(status.created_date).fromNow() %></h6>
+			<a href="/" type="button" class="btn btn-danger">Back</a>
+		</div>
+	</div>
+</div>	
+
+<%- include("partials/footer") %>

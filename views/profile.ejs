@@ -1,0 +1,52 @@
+<%- include("partials/header") %>
+
+<div class="container">
+	<div class="d-flex justify-content-center">
+		<div class="row">
+			<div class="">
+			<img id="profilepic" src="<%= user.image %>">
+			</div>
+			<div class="col">
+				<div class="card">
+					<div class="card-body">
+						<h2 class="card-title"><%= user.fname %></h2>
+						<h5 class="mb-2 text-muted">@<%= user.username %></h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><hr>
+	<div class="profileStat">
+		<% statuses.reverse().forEach(function(status){ %>
+			<ul class="list">
+				<li>
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="editPic">
+									<img id="propic" src="<%= status.author.image %>">
+								</div>
+								<div class="editTitle">
+									<a href="/<%= status.author.id %>/profile" class="card-link">
+									<h5 class="card-title"><%= status.author.fname %></h5></a>
+								</div>
+							</div>
+							<h6 class="card-subtitle mb-2 text-muted">@<%= status.author.username %></h6>
+							<p class="card-text"><%= status.status %></p>
+							<h6 class="mb-2 text-muted"><%= moment(status.created_date).fromNow() %></h6>
+							<% if(currentUser && status.author.id.equals(currentUser._id)){ %>
+								<a href="/<%= status._id %>/edit" type="button" class="btn ibtn btn-primary">Edit</a>
+								<form id="deleteForm" action="/api/status/<%= status._id %>?_method=DELETE" method="POST">
+									<button class="btn ibtn btn-danger">Delete</button>
+								</form>
+							<% } %>
+						</div>
+					</div>
+				<li>
+			<% }) %>
+		</ul>
+	</div>
+</div>
+
+<%- include("partials/footer") %>
+	

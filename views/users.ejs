@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+<div class="container">
+	<div class="d-flex justify-content-center">
+		<h1 class="p-2">Users</h1>
+	</div>
+	
+	<ul class="list">
+		<% users.forEach(function(user){ %>
+			<div class="card">
+				<div class="card-body">
+					<li><%= user.fname %> (<a href="/<%= user._id %>/profile" class="card-link">@<%= user.username %></a>)</li>
+				</div>
+			</div>
+		<% }) %>
+	</ul>
+</div>
+<%- include("partials/footer") %>
