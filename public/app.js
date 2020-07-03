@@ -1,21 +1,23 @@
 // /* global $ */
 
 $(document).ready(function(){	
-		$('#statusInput').keypress(function(event){
-			if(event.which == 13){
+	$('#statusInput').keypress((event) =>{
+		if(event.which == 13){
+			if($('#statusInput').val().length > 0){
 				createStatus();
 			}
-		});
+		}
 	});
+});
 
 //create function
-	function createStatus(){
-		var userInput = $('#statusInput').val();
-		$.post('/api/status', {status: userInput})
-		.then(function(newStatus){
-			addStatus(newStatus)
-		 })
-  		.catch(function(err){
-   		 console.log(err);
-  		})
-	}
+function createStatus(){
+	var userInput = $('#statusInput').val();
+	$.post('/api/status', {status: userInput})
+	.then((newStatus =>){
+		addStatus(newStatus)
+	 })
+	.catch((err) =>{
+	 console.log(err);
+	});
+}

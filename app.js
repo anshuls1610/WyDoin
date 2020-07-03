@@ -7,6 +7,7 @@ var express 		 = require('express'),
 	session			 = require('express-session'),
 	methodOverride	 = require('method-override'),
 	multer 			 = require('multer'),
+	flash			 = require('connect-flash'),
 	Index			 = require('./models/index'),
 	Status			 = require('./models/status'),
 	axios			 = require('axios'),
@@ -41,19 +42,16 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.locals.moment = require('moment');
+app.use(flash());
+
 //middleware for user login/logout navbar
 app.use(function getUser(req, res, next){
 	res.locals.currentUser = req.user;
+	res.locals.error	   = req.flash("error");
+	res.locals.success	   = req.flash("success");
 	return next();
 });
-
-app.locals.moment = require('moment');
-
-// app.use(multer({ dest: './uploads',
-//  rename: function (fieldname, filename) {
-//    return filename;
-//  },
-// }));
 
 app.use(indexRoutes);
 app.use(authRoutes);

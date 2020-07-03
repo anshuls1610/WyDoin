@@ -4,7 +4,6 @@ var express = require('express'),
 
 //get api route
 router.get('/', (req,res) =>{
-	//console.log(req.user.username);
 	db.Status.find()
 	.then((statuses) =>{
 		res.json(statuses);

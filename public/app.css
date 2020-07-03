@@ -11,6 +11,10 @@ body{
 	font-family: 'Open Sans', sans-serif;
 }
 
+.flash{
+	margin-top: 2%;
+}
+
 #propic{
 	margin-top:-5px;
 	margin-left:-10px;
@@ -26,17 +30,12 @@ body{
 	border-radius:1;
 }
 
-.card-subtitle{
-	margin-top: -18.5px;
-	margin-left: 60px;
-}
-
 .editPic{
 	margin-left: 1%;
 }
 
 .editTitle{
-	margin-top:-0.25%;
+	margin-top:-0.5%;
 	margin-left: 0.7%;
 }
 
@@ -67,7 +66,11 @@ body{
 }
 
 .card-text{
-	margin-top:17px;
+	margin-top:1.5%;
+}
+
+.card-subtitle{
+	margin-top: -8%;	
 }
 
 ul{

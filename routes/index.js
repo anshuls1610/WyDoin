@@ -13,7 +13,6 @@ router.get('/', (req, res) =>{
 	})
   	.then((response)=> {
 		res.render('index', {response: response});
-		
 	})
 	.catch(err =>{
 		console.log(err)
@@ -41,6 +40,7 @@ function isOwner(req,res,next){
 			}
 		});
 	} else {
+		req.flash('error', 'You need to login first!')
 		res.redirect('/login');
 	}
 }

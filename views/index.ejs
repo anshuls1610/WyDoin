@@ -17,10 +17,9 @@
 							 <div class="editTitle">
 								<a href="/<%= status.author.id %>/profile" class="card-link">
 								<h5 class="card-title"><%= status.author.fname %></h5></a>
-							 </div>
+								<h6 class="card-subtitle mb-2 text-muted">@<%= status.author.username %></h6>
+							</div>
 						</div>
-						
-						<h6 class="card-subtitle mb-2 text-muted">@<%= status.author.username %></h6>
 						<p class="card-text"><%= status.status %></p>
 						<h6 class="mb-2 text-muted"><%= moment(status.created_date).fromNow() %></h6>
 						

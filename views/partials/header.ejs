@@ -45,3 +45,15 @@
   		</div>
 	</div>
 </nav>
+
+	<% if(error && error.length > 0){ %>
+	<div class="container flash">
+		<div class="alert alert-danger text-center" role="alert"><%= error %></div>
+	<% } %>
+	</div>
+	<% if(success && success.length > 0){ %>
+	<div class="container flash">
+		<div class="alert alert-success text-center" role="alert"><%= success %></div>
+	</div>
+	<% } %>
+

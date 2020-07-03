@@ -4,7 +4,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="row">
 			<div class="">
-			<img id="profilepic" src="<%= user.image %>">
+				<img id="profilepic" src="<%= user.image %>">
 			</div>
 			<div class="col">
 				<div class="card">
@@ -29,9 +29,9 @@
 								<div class="editTitle">
 									<a href="/<%= status.author.id %>/profile" class="card-link">
 									<h5 class="card-title"><%= status.author.fname %></h5></a>
+									<h6 class="card-subtitle mb-2 text-muted">@<%= status.author.username %></h6>
 								</div>
 							</div>
-							<h6 class="card-subtitle mb-2 text-muted">@<%= status.author.username %></h6>
 							<p class="card-text"><%= status.status %></p>
 							<h6 class="mb-2 text-muted"><%= moment(status.created_date).fromNow() %></h6>
 							<% if(currentUser && status.author.id.equals(currentUser._id)){ %>
