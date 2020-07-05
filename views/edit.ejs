@@ -5,19 +5,19 @@
 		<div class="card-body">
 			<div class="row">
     			<div class="editPic">
-					<img id="propic" src="<%= status.author.image %>">
+					<img id="propic" src="<%= response.data.author.image %>">
 				</div>
 				<div class="editTitle">
-					<a href="/<%= status.author.id %>/profile" class="card-link">
-					<h5 class="card-title"><%= status.author.fname %></h5></a>
-					<h6 class="card-subtitle mb-2 text-muted">@<%= status.author.username %></h6>
+					<a href="/<%= response.data.author.id %>/profile" class="card-link">
+					<h5 class="card-title"><%= response.data.author.fname %></h5></a>
+					<h6 class="card-subtitle mb-2 text-muted">@<%= response.data.author.username %></h6>
 				</div>
 			</div>
-			<form action="/api/status/<%= status._id %>?_method=PUT" method="POST">
+			<form action="/api/status/<%= response.data._id %>?_method=PUT" method="POST">
 				<input id="editStatus" class="form-control" type="text" placeholder="What you doin'?" name="status" 
-					value="<%= status.status %>" required>
+					value="<%= response.data.status %>" required>
 			</form>
-			<h6 class="mb-2 text-muted"> <%= moment(status.created_date).fromNow() %></h6>
+			<h6 class="mb-2 text-muted"> <%= moment(response.data.created_date).fromNow() %></h6>
 			<a href="/" type="button" class="btn btn-danger">Back</a>
 		</div>
 	</div>

@@ -21,9 +21,18 @@ router.get('/', (req, res) =>{
 
 //EDIT ROUTE
 router.get('/:id/edit', isOwner, (req,res) =>{
-	db.Status.findById(req.params.id, (err, foundStatus) =>{
-	res.render('edit', {status: foundStatus});	
-	});
+	var id= req.params.id;
+	axios({
+		method: 'get',
+		url: 'status/' + id,
+		baseURL: process.env.BASEURL || 'https://api-oqcqf.run-ap-south1.goorm.io/api/'
+	})
+	.then((response)=> {
+		res.render('edit', {response: response});	
+	})
+	.catch(err =>{
+		console.log(err)
+	})
 });
 
 function isOwner(req,res,next){

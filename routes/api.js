@@ -32,10 +32,10 @@ router.post('/', isLoggedIn, (req,res) =>{
 });
 
 //show api route
-router.get('/:statusId', isLoggedIn, (req,res) =>{
+router.get('/:statusId', (req,res) =>{
 	db.Status.findById(req.params.statusId)
 	.then((foundStatus) =>{
-		res.json(foundStatus);
+		return res.json(foundStatus);
 	})
 	.catch((err) =>{
 		res.send(err);	
